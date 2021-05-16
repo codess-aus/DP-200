@@ -301,3 +301,22 @@ The developer should specify Column Encryption Setting = enabled. This allows SQ
 The developer should not specify Column Encryption Setting = disabled. This prevents SQL Server from decrypting values of encrypted columns when queries are run. 
 
 The developer should not specify Integrated Security. Integrated Security specifies whether or not the current Active Directory credentials are used to access a database. If it is set to false, SQL Server looks for the user id and password in the connection string. 
+
+You should use the following statement: 
+GRANT ALTER ANY COLUMN MASTER KEY TO 'SAM' 
+
+The key that is used to encrypt and decrypt the column encryption keys is referred to as the master key. 
+
+Sam needs permission to manage the master key. This statement grants Sam that permission. 
+
+You should not use the following statement: 
+GRANT ALTER ANY COLUMN ENCRYPTION KEY TO 'Sam' 
+This grants Sam permission to manage column encryption keys. In this scenario, Sam needs permission to manage the master key. 
+
+You should not use the following statement: 
+GRANT VIEW ANY COLUMN MASTER KEY DEFINITION TO 'Sam' 
+This grants Sam permission to read metadata of column master keys and to query encrypted columns. 
+
+You should not use the following statement: 
+GRANT VIEW ANY COLUMN ENCRYPTION KEY DEFINITION TO 'Sam' 
+This grants Sam permission to read metadata of column encryption keys and to query encrypted columns.
