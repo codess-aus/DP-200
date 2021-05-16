@@ -92,5 +92,18 @@ You should use the BoundedStaleness consistency level. This level is guaranteed 
 
 You should enable multiple write locations to provision Cosmos DB in multi-regions with multiple write regions to satisfy the application requirements. 
 
+You should perform the following steps in order: 
+1. Create a database master key. 
+2. Create a database scoped credential. 
+3. Create an external data source and external file format. 
+4. Create an external table. 
+
+To access Azure Data Lake Storage Gen2, Azure Synapse Analytics can use a service principal credentials. However, it requires the creation of the master key (an operation that is required only once per database), which is then used to encrypt those credentials and store them as a database scoped credential. 
+
+Relevant credentials will then be referenced in the newly created external data sources, which are used along with the external file formats to create external tables in the target Synapse SQL pool. 
+
+You should not create a clustered columnstore index. A columnstore index is an in-memory table used in operational analytics. It is not relevant to the setup of external tables. 
+
+You should not execute DBCC OPEN TRAN. It is a database command-line utility, which helps to identify active transactions that may be preventing log truncation.
 
 
