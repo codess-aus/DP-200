@@ -113,3 +113,11 @@ You should not set the Allow access to Azure services setting to off in the Azur
 You should not run the az sql db audit-policy Azure CLI command. This command allows you to manage the audit policy for an Azure SQL Database instance. 
 
 You should not add role assignments on the Access control (IAM) page of the Azure portal. Role assignments allow you to grant access to Azure resources to specific users or groups. In this scenario, you only want to ensure that users cannot access Azure SQL Database from the internet. Firewall settings provide this functionality.
+
+You should use an Azure SQL Database managed instance deployment. This deployment option is almost 100% compatible with an on-premises instance, including the ability to use CLR features. When you back up the databases on-premises, you can execute a restore command to migrate the databases in Azure. This is referred to as lift and shift. 
+
+You should not use an Azure Cosmos DB with the Core (SQL) API deployment. Cosmos DB is a multimodel database that supports five APIs for storage and queries, including Core (SQL), Table, Cassandra, Gremlin, and MongoDB. The Core API allows you to access data by using SQL-like queries. You cannot restore SQL Server databases to Cosmos DB by using SQL commands. 
+
+You should not use an Azure Cosmos DB with the Table API deployment. The Table API is similar to Azure Tables. This deployment is useful if you are migrating an application from Azure Tables to Cosmos DB. With Azure Tables, you can access data by using Language Integrated Query (LINQ) and OData. You cannot restore SQL Server databases to Cosmos DB by using SQL commands. 
+
+You should not use an Azure SQL Database with an elastic pool deployment. An elastic pool allows you to deploy multiple databases to a single logical instance and have all databases share a pool of resources. You configure the resource usage upfront by choosing a purchasing model. You cannot take advantage of CLR features with an elastic pool.
