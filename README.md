@@ -106,4 +106,10 @@ You should not create a clustered columnstore index. A columnstore index is an i
 
 You should not execute DBCC OPEN TRAN. It is a database command-line utility, which helps to identify active transactions that may be preventing log truncation.
 
+You should run the New-AzSqlServerFirewallRule PowerShell cmdlet. This cmdlet creates a firewall rule that protects the logical server instance and database from unauthorized access. Only the IP addresses specified as parameters to the cmdlet can access the database from the internet. By default, internet access to Azure SQL Database is prohibited.
 
+You should not set the Allow access to Azure services setting to off in the Azure portal. This setting allows you to execute queries and commands within the Azure portal. This does not affect external access. 
+
+You should not run the az sql db audit-policy Azure CLI command. This command allows you to manage the audit policy for an Azure SQL Database instance. 
+
+You should not add role assignments on the Access control (IAM) page of the Azure portal. Role assignments allow you to grant access to Azure resources to specific users or groups. In this scenario, you only want to ensure that users cannot access Azure SQL Database from the internet. Firewall settings provide this functionality.
