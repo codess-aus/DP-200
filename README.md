@@ -295,3 +295,9 @@ Next, you retrieve your custom key from the Azure Key Vault and add it to your A
 And finally, you use the Set-AzSqlDatabaseTransparentDataEncryption cmdlet to turn on TDE again, which will re-encrypt your Azure SQL Database, switching from the Microsoft-managed key to your own custom managed key. 
 
 You should not export or import the contents of your Azure SQL Database in BACPAC format. You would do that to move the contents of an Azure SQL Database between cloud and on-premises SQL instances. 
+
+The developer should specify Column Encryption Setting = enabled. This allows SQL Server to decrypt the values of encrypted columns when queries are run. 
+
+The developer should not specify Column Encryption Setting = disabled. This prevents SQL Server from decrypting values of encrypted columns when queries are run. 
+
+The developer should not specify Integrated Security. Integrated Security specifies whether or not the current Active Directory credentials are used to access a database. If it is set to false, SQL Server looks for the user id and password in the connection string. 
