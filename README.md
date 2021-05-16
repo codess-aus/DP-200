@@ -261,3 +261,21 @@ For a small dimension table, you should use a replicated table. No data movement
 For a table that has queries that scan a date range, you should create a partitioned table. Partition elimination can improve the performance of the scans when the scanned range is a small part of the table. 
 
 You should not create a temporary table. A temporary table is only visible to the session that creates it and will be deleted when the session ends. 
+
+You need the following catalog views: 
+sys.tables - Gives the tables, including the name. 
+sys.columns - Gives the columns, including the name. 
+sys.pdw_column_distribution_properties - Gives the distribution information. 
+
+Example of a query: 
+SELECT t.name AS [tablename], c.name AS [columnname] 
+FROM sys.tables AS t 
+JOIN sys.columns AS c ON c.object_id = t.object_id 
+JOIN sys.pdw_column_distribution_properties AS d ON d.object_id = t.object_id AND d.column_id : 
+c.column_id 
+WHERE d.distribution_ordinal = 1 
+
+You do not need the following catalog views: 
+• sys.pdw_distributions - Gives information about the distributions on the appliance. 
+• sys.pdw_table_distribution_properties - Gives the distribution information for the tables. 
+• sys.pdw_nodes_columns - Gives columns for user-defined objects. 
