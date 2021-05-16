@@ -149,6 +149,29 @@ This uses **replicated distribution**, which copies the same data across compute
 
 **Performance is better when using hash distribution. **
 
+You should use hash distribution on Storeld for both FactSalesByStore and DimStore. Hash distribution shards data across compute nodes by placing all data that uses the same hash key on the same compute node. This improves the performance of the query in the scenario. 
 
+You should use replicated distribution for the DimStore table. Replicated distribution copies the same data to all the compute nodes. This is useful when you want to read data from small fact tables. 
 
+You should not use an outer join instead of an inner join. This would return more rows than necessary, and it would not improve performance. 
 
+You should perform the following steps in order: 
+1. Create a failover group and add the original Azure SQL Database. 
+2. Monitor the sync process with the Get-AzSqlDatabaseFailoverGroup cmdlet and verify that its ReplicationState is equal to 2. 
+3. Execute the Switch-AzSqlDatabaseFailoverGroup cmdlet by using the failover group's read-only listener endpoint. 
+4. With the NSLOOKUP command, verify the swap of IP addresses between the failover group's read-write and read-only listeners. 
+5. Delete the failover group and the original Azure SQL Database. 
+
+You should start with the creation of the failover group and adding the original Azure SQL Database. This will initiate the deployment and the synchronization of the Azure SQL Database in the secondary Azure location. 
+
+You should then monitor the sync process by using the Get-AzSqlDatabaseFailoverGroup cmdlet. When its output parameter ReplicationState returns 2 ("CATCH UP"), this indicates that the databases are in sync and can be safely failed over. 
+
+You should then execute the Switch-AzSqlDatabaseFailoverGroup cmdlet. It needs to be executed against a secondary database server (represented by the failover group's read-only listener endpoint) that should become primary with full sync. 
+
+Once the failover process is completed, you should use the NSLOOKUP command to confirm that the primary and secondary databases switched their geographical IP addresses. 
+
+Finally, you should delete the failover group and the original Azure SQL Database. Their contents have now been successfully moved to the new region. 
+
+You should not monitor the sync process with the Get-AzSqlDatabaseFailoverGroup cmdlet and verify that its ReplicationState is equal to O. Status O ("SEEDING") indicates that the secondary database is not yet seeded and that is why attempts to failover will fail. 
+
+You should not execute the Switch-AzSqlDatabaseFailoverGroup cmdlet by using the failover group's read-write listener endpoint. This endpoint represents the primary database server, while this cmdlet should be executed against a secondary database server (represented by the failover group's read-only listener endpoint).
