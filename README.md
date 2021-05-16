@@ -134,20 +134,21 @@ The GRANT command grants permissions to a user. For example, GRANT ALTER ANY USE
 
 The db_datareader role allows a user to query database objects. The db_datawriter role allows a user to write and update database objects.
 
-This creates a replicated table. A replicated table is copied across all the compute nodes in a data warehouse. This improves the performance of queries for data in small tables. In this scenario, the Store table is small. It is less than 200 MB. 
+
+This creates a replicated table. A **replicated table** is copied across all the compute nodes in a data warehouse. This improves the performance of queries for data in **small tables**. In this scenario, the Store table is small. It is less than 200 MB. 
 
 You should not specify HASH as the distribution type. This uses hash distribution. Data is sharded across compute nodes by a column that you specify. 
-
-You should not specify ROUND_ROBIN as the distribution type. This creates a round-robin-distributed table. A round-robin distribution shards data evenly. Query performance is better when using hash distribution.
 
 This creates a hash-distributed table that uses Storeld as the distribution column. This allows the table to be distributed by each store. Parallel queries can be run for different stores on different compute nodes. 
 
 You should not use Sku as the distribution column. This would distribute data across every SKU, making parallel queries that read the inventory position for all SKUs in a given store slow. 
 
-You should not use the PARTITION table option. This creates a partitioned table. In this scenario, you should create a distributed table. 
+This uses **replicated distribution**, which copies the same data across compute nodes. This is beneficial for **small tables**. 
 
-You should not specify REPLICATE as the distribution type. This uses replicated distribution, which copies the same data across compute nodes. This is beneficial for small tables. 
+**A round-robin distribution shards data evenly**. 
 
-You should not specify ROUND_ROBIN as the distribution type. This creates a round-robin-distributed table. A round-robin distribution shards data evenly. Performance is better when using hash distribution. 
+**Performance is better when using hash distribution. **
+
+
 
 
