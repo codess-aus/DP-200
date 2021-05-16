@@ -328,3 +328,11 @@ You should not grant the ALTER ANY COLUMN ENCRYPTION KEY permission to Sam. This
 You should grant the VIEW ANY COLUMN MASTER KEY DEFINITION permission to Sam. This permission allows Sam to view column master key metadata and to query encrypted columns. 
 You should grant the VIEW ANY COLUMN ENCRYPTION KEY DEFINITION permission to Sam. This permission allows Sam to view column encryption key metadata and to query encrypted columns.
 
+SQL Injection Attacks"
+
+You should not eliminate the use of stored procedures. Stored procedures actually enhance security by ensuring that ad-hoc queries are not sent to the database. 
+
+You should not use ad-hoc queries. Ad-hoc queries increase vulnerabilities because malicious queries can be injected. 
+
+You should validate user input before allowing the input to be used in queries. This helps prevent SQL injection.
+
