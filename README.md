@@ -228,3 +228,29 @@ You should not enable PolyBase support with the sp_configure command. Enabling P
 You should not enable T DE. T DE is used to encrypt data in rest. T DE should not be enabled to use PolyBase. 
 
 You should not load the parquet file into a staging table. You can directly use the data in the parquet file using the T -SQL statements from the external table. You do not need to create a staging table to load the data. 
+
+You should complete the cmdlet as shown below: 
+New-AzSqlDatabaselnstanceFailoverGroup 
+-Name AutoFailoverGroup 
+-ResourceGroupName AutoProduction 
+-PrimaryManagedlnstanceName Autolndustry 
+-PartnerRegion EastUS 
+-PartnerManagedlnstanceName Autolndustry Secondary 
+-FailoverPolicy Automatic 
+
+You should use New-AzSqlDatabaselnstanceFailoverGroup to create a failover group between Azure SQL Managed Instances. This command has four required parameters, the failover group Name, PrimaryManagedlnstanceName, PartnerManagedlnstanceName and PartnerRegion. You need to properly configure these properties to create the failover group as specified. 
+
+You should configure ResourceGroupName for AutoProduction. This resource group will be used to provision your failover group. 
+
+You should configure PrimaryManagedlnstanceName for Autolndustry. This is the primary managed instance as specified in requirements. 
+
+You should configure PartnerManagedlnstanceName for AutolndustrySecondary. This is the secondary database as specified in requirements. 
+
+You should configure PartnerRegion as EastUS. This is the region where AutolndustrySecondary is provisioned. 
+
+You should not use Set-AzSqlDatabaseFailoverGroup. This command is used to modify a failover group configuration, like setting a new failover group policy. 
+
+You should not use New-AzSqlDatabaseFailoverGroup. This command creates a failover group for Azure SQL Databases. You need to create a failover group for Azure SQL Managed Instances. 
+
+
+
