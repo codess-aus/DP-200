@@ -184,3 +184,20 @@ You should not use DMA. DMA is an assessment tool for migrating SQL Server insta
 
 You should not use Azure Database Migration Service. This is a fully managed service to migrate multiple database sources to Azure with minimal downtime. It does not support bi-directional synchronization or migration.
 
+You should perform the following actions in order: 
+1. Create a scoped credential with the Azure storage account key. 
+2. Create an external data source with the HADOOP type and an external file format. 
+3. Create an external table. 
+4. Load the data into the FactCarSales table. 
+
+You should create a scoped credential with the Azure storage account key. Azure Data Lake Storage Gen2 supports the use of storage account keys for Polybase access. 
+
+You should create an external data source with the HADOOP type using the scoped credential created to connect Azure Synapse Analytics with the Azure Data Lake Store, and an external file format to configure the file format of the data stored in Azure Data Lake Store, such as a field delimiter for the source files, Next, you should create an external table using the external data source and the external file format previously defined to create a table representation of the data for Azure Synapse Analytics. 
+
+You should then load the data into the FactCarSales table. You can use SQL queries to load the data from the external table into the FactCarSales table. 
+
+You should not create a scoped credential with the Client Id and OAuth 2.0 token endpoint. You could use this option when you are connecting with Azure Data Lake Store. However, this would require a service principal in Azure AD to generate the Client Id and the token. 
+
+You should not create an external data source with the BLOB_STORAGE type. This type is used when executing bulk operations with an on-premises SQL Server or Azure SQL Database.
+
+
