@@ -175,3 +175,12 @@ Finally, you should delete the failover group and the original Azure SQL Databas
 You should not monitor the sync process with the Get-AzSqlDatabaseFailoverGroup cmdlet and verify that its ReplicationState is equal to O. Status O ("SEEDING") indicates that the secondary database is not yet seeded and that is why attempts to failover will fail. 
 
 You should not execute the Switch-AzSqlDatabaseFailoverGroup cmdlet by using the failover group's read-write listener endpoint. This endpoint represents the primary database server, while this cmdlet should be executed against a secondary database server (represented by the failover group's read-only listener endpoint).
+
+You should use Azure SQL Data Sync. Data Sync is a service that lets you synchronize data across multiple Azure SQL Databases and on-premises SQL Server instances bi-directionally. 
+
+You should not use Azure SQL active geo-replication. Active geo-replication is a disaster recovery solution for Azure SQL Database that allows replicating a database to another Azure region. The synchronization direction is only from the master to the replica database, and you only have read access to the replica database.
+
+You should not use DMA. DMA is an assessment tool for migrating SQL Server instances to Azure SQL Database. It evaluates incompatibilities and recommends performance improvements for the target database. 
+
+You should not use Azure Database Migration Service. This is a fully managed service to migrate multiple database sources to Azure with minimal downtime. It does not support bi-directional synchronization or migration.
+
