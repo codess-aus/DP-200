@@ -60,3 +60,7 @@ You should not use the Table API. This API allows you to query data by using ODa
 
 You should not use the MongoDB API. This API does not allow you to use SQL-like queries to access and filter data.
 
+You should use Gremlin API because it is based on the Apache TinkerPop graph database standard and meets the solution's requirements. 
+
+
+
