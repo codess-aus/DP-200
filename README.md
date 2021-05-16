@@ -29,3 +29,8 @@ A client cannot see partial writes of a sales data record by default. This is be
 A client can set the consistency level to Eventual Consistency at connection time. This allows the client to specify a consistency level different from the default. Eventual consistency is the weakest consistency level. It means that data reads and writes in a distributed system will be in sync eventually. 
 
 A client can set a different consistency level during each request to sales data. This allows the client to specify a consistency level different from the default level depending on the type of request being made. 
+
+With the session consistency level, the same user is guaranteed to read the same value within a single session. Even before replication occurs, the user that writes the data can read the same value. 
+
+Only the same user within the same session is guaranteed to read the same value within a single session. This is because the data has not yet replicated.
+
