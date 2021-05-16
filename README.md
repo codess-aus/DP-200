@@ -21,3 +21,11 @@ A partition key allows you to create logical partitions for data. Values that ha
 You should specify the category as a partition key. All receipts that have the same category share the same logical partition. When you query receipts by category, you can be sure that they all are retrieved from the same partition, which improves query performance. Because 50 percent of receipts are for the 10 most popular categories, this improves performance because most queries will be performed against those receipts. 
 
 You should specify the unique number as the row key. A row key uniquely identifies an entity. 
+
+You cannot query data by using Gremlin API. The --kind parameter of the az cosmosdb create command specifies the API used by the Cosmos DB account. The value GlobalDocumentDB means that the account uses the Core API. 
+
+A client cannot see partial writes of a sales data record by default. This is because the account uses a strong consistency level, as indicated by the --default-consistency-level parameter. With a strong consistency level, reads are guaranteed to return the most recently committed version of a data record. 
+
+A client can set the consistency level to Eventual Consistency at connection time. This allows the client to specify a consistency level different from the default. Eventual consistency is the weakest consistency level. It means that data reads and writes in a distributed system will be in sync eventually. 
+
+A client can set a different consistency level during each request to sales data. This allows the client to specify a consistency level different from the default level depending on the type of request being made. 
