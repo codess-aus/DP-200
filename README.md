@@ -206,3 +206,25 @@ You should use the replicated table option for the DimBusinessUnits table. This 
 
 You should use **round-robin** distribution for the StagingFactTable table. This method **distributes table rows evenly across all distributions and improves loading performance** during the ETL process. 
 
+You should perform the following actions in any order: 
+• Create a database master key. 
+• Create an external data source for Azure Blob Storage. 
+• Create an external file format from parquet file. 
+• Create an external table. 
+• Load the data in the FactSaleOrders table using T -SQL. 
+
+You should first create a database master key. This master key stores shared keys to access Azure Blob Storage. 
+
+You should create an external data source for Azure Blob Storage to allow the connection between the Azure SQL Data Warehouse and Azure Blob Storage. 
+
+You should create an external file format for the parquet file to configure how PolyBase will import the data using the parquet files. 
+
+You should create an external table. The external table is a representation of the data stored in Azure Blob Storage as a table. You need to use the external data source and the external file format previously defined with the parquet file to create this table. 
+
+You should load the data in the FactSaleOrders table using T-SQL. The external table created previously supports common T -SQL queries. You could use an INSERT INTO SELECT statement to load data from the external table to the FactSaleOrders table. 
+
+You should not enable PolyBase support with the sp_configure command. Enabling PolyBase support is only required for an on-premises SQL Server. Azure Synapse Analytics support for PolyBase is enabled by default. 
+
+You should not enable T DE. T DE is used to encrypt data in rest. T DE should not be enabled to use PolyBase. 
+
+You should not load the parquet file into a staging table. You can directly use the data in the parquet file using the T -SQL statements from the external table. You do not need to create a staging table to load the data. 
