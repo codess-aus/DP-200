@@ -121,3 +121,15 @@ You should not use an Azure Cosmos DB with the Core (SQL) API deployment. Cosmos
 You should not use an Azure Cosmos DB with the Table API deployment. The Table API is similar to Azure Tables. This deployment is useful if you are migrating an application from Azure Tables to Cosmos DB. With Azure Tables, you can access data by using Language Integrated Query (LINQ) and OData. You cannot restore SQL Server databases to Cosmos DB by using SQL commands. 
 
 You should not use an Azure SQL Database with an elastic pool deployment. An elastic pool allows you to deploy multiple databases to a single logical instance and have all databases share a pool of resources. You configure the resource usage upfront by choosing a purchasing model. You cannot take advantage of CLR features with an elastic pool.
+
+You should use the following command: 
+
+ALTER ROLE db_owner ADD MEMBER SAM 
+
+This statement adds Sam as the database owner (db_owner). The db_owner role has administrative access over the database, including the ability to add or remove other users. 
+
+The CREATE command allows you to create database objects, such as tables, logins, and users. 
+
+The GRANT command grants permissions to a user. For example, GRANT ALTER ANY USER TO Sam gives Sam permission to create and remove other users. However, by adding Sam to the db_owner role, Sam automatically inherits that permission. 
+
+The db_datareader role allows a user to query database objects. The db_datawriter role allows a user to write and update database objects.
