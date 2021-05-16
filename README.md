@@ -10,3 +10,5 @@ An Azure SQL Database account is Microsoft's Platform-as-a-Service (PaaS) offeri
 **Azure Table storage uses NoSQL, which allows you to store keys and attributes in a schemaless data store**. This is similar to Cosmos DB with the Table API. Each entity (row) 
 can store a varying number of attributes (fields). This allows different vendors to upload products with varying attributes. You can also use .NET to query the data.
 
+Configuring **Always Encrypted with a randomized type will encrypt the column with random generated values, preventing join operations, grouping, and indexing**.
+
