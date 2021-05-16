@@ -85,3 +85,12 @@ You should not use region. This field contains only five possible values, result
 You should not use sensorld. This field is unique across all documents and will result in millions of logical partitions with a single document, impacting the read and write throughput. 
 
 You should not use timestamp with a random SUffX. This partition key will distribute all documents across logical partitions evenly, greatly increasing the write throughput. However, reading a specific item will become harder because you do not know which suffx was used, impacting the read throughput. 
+
+You should use GlobalDocumentDB to provision a Cosmos DB with the Core (SQL) API as required by the application. 
+
+You should use the BoundedStaleness consistency level. This level is guaranteed to return the most recent committed version of a record in a multi-region write Cosmos DB database. 
+
+You should enable multiple write locations to provision Cosmos DB in multi-regions with multiple write regions to satisfy the application requirements. 
+
+
+
