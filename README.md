@@ -78,3 +78,10 @@ You should use a collection for the container type and document for the item typ
 You should not use a table for the container type. A table is the container type if you are using the Cassandra API or the Table API in Cosmos DB. 
 You should not use a graph for the container type or edge for the item type. A graph is used as a container type and edge is used as an item type if you are using the Gremlin API in Cosmos DB.
 
+You should use region with pre-calculated suffx based on sensorld. This partition key will distribute all the documents evenly across logical partitions. Including a pre-calculated suffx based on a known value (sensorld, for example) will greatly improve both write and read throughput across the partitions. 
+
+You should not use region. This field contains only five possible values, resulting in a small number of logical partitions and a low read and write throughput. 
+
+You should not use sensorld. This field is unique across all documents and will result in millions of logical partitions with a single document, impacting the read and write throughput. 
+
+You should not use timestamp with a random SUffX. This partition key will distribute all documents across logical partitions evenly, greatly increasing the write throughput. However, reading a specific item will become harder because you do not know which suffx was used, impacting the read throughput. 
