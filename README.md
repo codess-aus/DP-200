@@ -50,5 +50,4 @@ The 640 permission set to the text file created by Kerry can be translated as:
 • Owner Group (Finance, which includes David): Read Only (4) 
 • Everyone Else (Alan): No Access (O) 
 
-
-
+With the **strong consistency level**, reads are guaranteed to return the most **committed version** of an item. Even if Employee A is the user that changed the attribute, that employee still reads the original value until the item is committed and synchronization takes place. Therefore, Employee A, Employee B, and Employee C all read Pending until the item is committed and synchronization takes place.
