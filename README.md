@@ -252,5 +252,12 @@ You should not use Set-AzSqlDatabaseFailoverGroup. This command is used to modif
 
 You should not use New-AzSqlDatabaseFailoverGroup. This command creates a failover group for Azure SQL Databases. You need to create a failover group for Azure SQL Managed Instances. 
 
+For a large fact table, you should create a hash-distributed table. Query performance improves when the table is joined with a replicated table or with a table that is distributed on the same column. This avoids data movement. 
 
+For a staging table with unknown data, you should create a round-robin distributed table. The data will be evenly distributed across the nodes, and no distribution column needs to be chosen. 
 
+For a small dimension table, you should use a replicated table. No data movement is involved when the table is joined with another table on any column. 
+
+For a table that has queries that scan a date range, you should create a partitioned table. Partition elimination can improve the performance of the scans when the scanned range is a small part of the table. 
+
+You should not create a temporary table. A temporary table is only visible to the session that creates it and will be deleted when the session ends. 
