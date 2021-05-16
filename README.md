@@ -320,3 +320,11 @@ This grants Sam permission to read metadata of column master keys and to query e
 You should not use the following statement: 
 GRANT VIEW ANY COLUMN ENCRYPTION KEY DEFINITION TO 'Sam' 
 This grants Sam permission to read metadata of column encryption keys and to query encrypted columns.
+
+You should not grant the ALTER ANY COLUMN MASTER KEY permission to Sam. This permission allows you to manage the master key, which encrypts and decrypts column encryption keys. This permission is not required to query encrypted columns. 
+
+You should not grant the ALTER ANY COLUMN ENCRYPTION KEY permission to Sam. This permission allows you to manage column encryption keys. This permission is not required to query encrypted columns. 
+
+You should grant the VIEW ANY COLUMN MASTER KEY DEFINITION permission to Sam. This permission allows Sam to view column master key metadata and to query encrypted columns. 
+You should grant the VIEW ANY COLUMN ENCRYPTION KEY DEFINITION permission to Sam. This permission allows Sam to view column encryption key metadata and to query encrypted columns.
+
