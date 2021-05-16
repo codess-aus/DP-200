@@ -200,4 +200,9 @@ You should not create a scoped credential with the Client Id and OAuth 2.0 token
 
 You should not create an external data source with the BLOB_STORAGE type. This type is used when executing bulk operations with an on-premises SQL Server or Azure SQL Database.
 
+You should use the hash-distributed distribution method for the FactSales table. **Hash-distributed tables achieve the highest query performance for large tables**, splitting the work across multiple compute nodes. 
+
+You should use the replicated table option for the DimBusinessUnits table. This is a **small table in size, and replicating its content across all compute nodes will improve performance when joining with other tables**. 
+
+You should use **round-robin** distribution for the StagingFactTable table. This method **distributes table rows evenly across all distributions and improves loading performance** during the ETL process. 
 
