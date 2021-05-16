@@ -279,3 +279,19 @@ You do not need the following catalog views:
 • sys.pdw_distributions - Gives information about the distributions on the appliance. 
 • sys.pdw_table_distribution_properties - Gives the distribution information for the tables. 
 • sys.pdw_nodes_columns - Gives columns for user-defined objects. 
+
+You need to perform the following steps in order: 
+1. Assign an Azure AD identity to the Azure SQL Database server. 
+2. Grant Key Vault permissions to the Azure SQL Database server. 
+3. Add the Key Vault key to the Azure SQL Database server and set it as T DE Protector. 
+4. Turn on T DE. 
+
+When you configure Azure SQL TDE in the Azure portal, you get an Azure AD identity assigned and relevant permissions set to the Azure SQL Database server via the Azure Key Vault access policy automatically. 
+
+However, when you use PowerShell, you need to perform these two steps manually. 
+
+Next, you retrieve your custom key from the Azure Key Vault and add it to your Azure SQL Database server, and afterwards set that key as a TDE protector for all server resources. 
+
+And finally, you use the Set-AzSqlDatabaseTransparentDataEncryption cmdlet to turn on TDE again, which will re-encrypt your Azure SQL Database, switching from the Microsoft-managed key to your own custom managed key. 
+
+You should not export or import the contents of your Azure SQL Database in BACPAC format. You would do that to move the contents of an Azure SQL Database between cloud and on-premises SQL instances. 
