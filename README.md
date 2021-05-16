@@ -51,3 +51,12 @@ The 640 permission set to the text file created by Kerry can be translated as:
 • Everyone Else (Alan): No Access (O) 
 
 With the **strong consistency level**, reads are guaranteed to return the most **committed version** of an item. Even if Employee A is the user that changed the attribute, that employee still reads the original value until the item is committed and synchronization takes place. Therefore, Employee A, Employee B, and Employee C all read Pending until the item is committed and synchronization takes place.
+
+You should choose the **Core (SQL) API**. This API is recommended because it supports a *schema-less data store*. In this scenario, different types of products can have different attributes. This is indicated by the fact that not all columns in the existing database are used. Some products can have different columns populated. This is referred to as semi-structured data. This API allows you to use SQL-like queries to access and filter data. The data is returned as JavaScript Object Notation (JSON) documents. 
+
+You should not use the Gremlin API. This API does not support SQL-like queries. This API uses the Gremlin Graph Traversal Language to query data from a graph database. 
+
+You should not use the Table API. This API allows you to query data by using OData and Language Integrated Query (LINQ). It does not support SQL-like queries from web applications. 
+
+You should not use the MongoDB API. This API does not allow you to use SQL-like queries to access and filter data.
+
