@@ -34,3 +34,21 @@ With the session consistency level, the same user is guaranteed to read the same
 
 Only the same user within the same session is guaranteed to read the same value within a single session. This is because the data has not yet replicated.
 
+File permissions consist of three digits: Owner (The user who created the item automatically becomes an Owner), Owner Group, and Everyone Else. In Azure Data Lake Storage Gen2, the Owner Group is inherited from the parent folder. 
+
+Azure Data Lake Storage Gen2 supports settings ACLs in the POSIX-compatible format, which assigns the following numbers to the different permission combinations: 
+
+* Read Only: 4 
+* Write Only: 2 
+* Execute Only: 1 
+* No Access: O 
+* read + write: 4 + 2 = 6 
+* Read + Execute: 4 + 1 = 5 
+
+The 640 permission set to the text file created by Kerry can be translated as: 
+• Owner (Kerry): Read + Write (6) 
+• Owner Group (Finance, which includes David): Read Only (4) 
+• Everyone Else (Alan): No Access (O) 
+
+
+
