@@ -73,3 +73,8 @@ Azure Cosmos DB has five levels of data consistency options:
 
 Higher consistency levels guarantee that the latest committed write was read by the application, but you have a performance tradeoff of a few milliseconds using a higher consistency level. 
 
+You should use a collection for the container type and document for the item type. Cosmos DB refers to container and item types according to which API is used in your account. The **MongoDB API refers to the container as a collection and document for each item inside a collection. **
+
+You should not use a table for the container type. A table is the container type if you are using the Cassandra API or the Table API in Cosmos DB. 
+You should not use a graph for the container type or edge for the item type. A graph is used as a container type and edge is used as an item type if you are using the Gremlin API in Cosmos DB.
+
