@@ -62,5 +62,14 @@ You should not use the MongoDB API. This API does not allow you to use SQL-like 
 
 You should use Gremlin API because it is based on the Apache TinkerPop graph database standard and meets the solution's requirements. 
 
+Eventual consistency level. This is the lowest consistency level available and will result in as little latency as possible, without the guarantee of reading operations using the latest committed write. 
 
+Azure Cosmos DB has five levels of data consistency options: 
+• Strong 
+• Bounded staleness 
+• Session 
+• Consistent prefix 
+• Eventual 
+
+Higher consistency levels guarantee that the latest committed write was read by the application, but you have a performance tradeoff of a few milliseconds using a higher consistency level. 
 
