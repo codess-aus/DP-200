@@ -339,3 +339,7 @@ You should not use ad-hoc queries. Ad-hoc queries increase vulnerabilities becau
 You should validate user input before allowing the input to be used in queries. This helps prevent SQL injection.
 
 ## Manage and Develop Data Processing
+
+The Databricks CLI can be used to create only Databricks-backed secret scopes, for example when the keys are stored in an encrypted database owned and managed by Azure Databricks. 
+
+The setup of an Azure Key Vault-backed secret scope is supported only in Azure Databricks UI.
