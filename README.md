@@ -350,5 +350,11 @@ The Databricks CLI can be used to create only Databricks-backed secret scopes, f
 
 To refer to the secret keys stored in Azure Key Vault and use them for secure access, for example to mount the Azure Blob Storage container, you need to create a secret scope in Azure Databricks. Currently, the setup of an Azure Key Vault-backed secret scope is supported only in the Azure Databricks UI.
 
+To import data into **Azure Synapse Analytics**, you should first create an external file format by using the CREATE EXTERNAL FILE FORMAT statement. This defines the type of file 
+that represents the source data. 
 
+Next, you should create an external data source by using the CREATE EXTERNAL DATA SOURCE statement. This specifies the location and credentials to the Azure Data Lake Storage account. 
 
+Then you should create an external table by using the CREATE EXTERNAL TABLE statement. This defines the table fields, specifies its location in the storage account, and the file format that you created. 
+
+Finally, you should load data into the table by using CREATE TABLE AS SELECT, which allows you to write a query that selects data from the source file and place it in a new table.
