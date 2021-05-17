@@ -347,3 +347,8 @@ Solution: You create a secret scope using the Secrets API via the Azure Databric
 Solution: You open Azure Databricks workspace from Azure portal, add *secrets/createScope to its URL, and fill in all the details to create the secret scope **Y**
 
 The Databricks CLI can be used to create only Databricks-backed secret scopes, for example when the keys are stored in an encrypted database owned and managed by Azure Databricks. The setup of an Azure Key Vault-backed secret scope is supported only in Azure Databricks UI.
+
+To refer to the secret keys stored in Azure Key Vault and use them for secure access, for example to mount the Azure Blob Storage container, you need to create a secret scope in Azure Databricks. Currently, the setup of an Azure Key Vault-backed secret scope is supported only in the Azure Databricks UI.
+
+
+
