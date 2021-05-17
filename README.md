@@ -358,3 +358,6 @@ Next, you should create an external data source by using the CREATE EXTERNAL DAT
 Then you should create an external table by using the CREATE EXTERNAL TABLE statement. This defines the table fields, specifies its location in the storage account, and the file format that you created. 
 
 Finally, you should load data into the table by using CREATE TABLE AS SELECT, which allows you to write a query that selects data from the source file and place it in a new table.
+
+Azure Databricks uses Spark clusters to execute code in notebooks. You should not use sp_addlinkedserver to connect to a Databricks account. This stored procedure allows 
+you to connect to other SQL Server instances. The dbutils.fs.cp command allows you to copy files in Databricks. Because you should not use Databricks, you should not run this command.
