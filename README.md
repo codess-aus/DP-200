@@ -361,3 +361,5 @@ Finally, you should load data into the table by using CREATE TABLE AS SELECT, wh
 
 Azure Databricks uses Spark clusters to execute code in notebooks. You should not use sp_addlinkedserver to connect to a Databricks account. This stored procedure allows 
 you to connect to other SQL Server instances. The dbutils.fs.cp command allows you to copy files in Databricks. Because you should not use Databricks, you should not run this command.
+
+Azure Cosmos DB is a multi-model, non-relational database that uses one of five APIs: SQL, Table, Cassandra, MongoDB, and Gremlin. You should not use sp_addlinkedserver to connect to a Cosmos DB account. This stored procedure allows you to connect to other SQL Server instances. BULK IMPORT does allow you to bulk import data, but this command cannot import data from a Cosmos DB account.
