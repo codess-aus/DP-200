@@ -340,6 +340,9 @@ You should validate user input before allowing the input to be used in queries. 
 
 ## Manage and Develop Data Processing
 
-The Databricks CLI can be used to create only Databricks-backed secret scopes, for example when the keys are stored in an encrypted database owned and managed by Azure Databricks. 
+You keep Azure Storage access keys in Azure Key Vault. You need to configure a reference to those keys from within Azure Databricks to enable secure access to Azure Blob Storage. 
 
-The setup of an Azure Key Vault-backed secret scope is supported only in Azure Databricks UI.
+Solution: You create a secret scope using the Databricks CLI (version 0.7.1 and above). X
+
+The Databricks CLI can be used to create only Databricks-backed secret scopes, for example when the keys are stored in an encrypted database owned and managed by Azure Databricks. The setup of an Azure Key Vault-backed secret scope is supported only in Azure Databricks UI.
+
