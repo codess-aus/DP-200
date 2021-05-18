@@ -375,7 +375,9 @@ Azure Cosmos DB is a multi-model, non-relational database that uses one of five 
 You want to retrieve the sensor data in real time so that you can extract relevant information, transform it, and then send it to Power Bl. 
 Solution: 
 You do the following: 
-• Create an Event Hub instance. 
+• Create an Event Hub or an IOT instance. 
 • Create a Stream Analytics job that uses a query to extract data.
 
 **Event Hubs** is an Azure resource that allows you to stream big data to the cloud. It accepts streaming data over HTTPS and AMQP. A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl. 
+
+**IOT Hub** is an Azure resource that allows you to stream big data to the cloud. It supports per-device provisioning. It accepts streaming data over HTTPS, AMQP, and Message Queue Telemetry Transport (MQTT). A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl.
