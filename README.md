@@ -366,11 +366,19 @@ Azure Cosmos DB is a multi-model, non-relational database that uses one of five 
 
 **Session windows** begin when the defect detection event occurs, and they continue to extend, including new events occurring within the set time interval (timeout). If no further events are detected, then the window will close. The window will also close if the maximum duration parameter is set for the session window, and then a new session window may begin. The session window option will effectively filter out periods of time where no events are streamed. Each event is only counted once. 
 
+Windowing functions are native to Stream Analytics, which is what you should use to analyze the data. The **session windowing function** allows you to group streaming events that arrive at a similar time. In this scenario, you want to determine the time when the suspected cheating occurs. Specifically, you want to determine the number of pass results that occur at a test center within 20 minutes of each other. 
+
 **Tumbling windows** are a series of fixed-sized, non-overlapping and contiguous time intervals. Each event is only counted once. However, they do not check the time duration between events and do not filter out periods of time when no events are streamed. 
+
+**tumbling windowing function**. This function allows you to segment data into distinct time segments without overlapping. This does not help in this scenario because pass results occur at a test center within 20 minutes of each other might be present in different data segments. 
 
 **Hopping windows** are a series of fixed-sized and contiguous time intervals. They hop forward by a specified fixed time. If the hop size is less than a size of the window, hopping windows overlap, and that is why an event may be part of several windows. Hopping windows do not check the time duration between events and do not filter out periods of time when no events are streamed. 
 
 **Sliding windows** are a series of fixed-sized and contiguous time intervals. They produce output only when an event occurs, so you can filter out periods of times where no events are streamed. However, they may overlap and that is why an event may be included in more than one window. Sliding windows also do not check the time duration between events.
+
+**LAST function**. This is an analytic function used to look up for the most recent event in an event stream, given an optional constraint. You should use a windowing function to determine the number of pass results that occur at a test center within 20 minutes of each other. 
+
+**MIN function**. This is an aggregate function used to return the minimal value in an expression. You should use a windowing function to determine the number of pass results that occur at a test center within 20 minutes of each other. 
 
 You want to retrieve the sensor data in real time so that you can extract relevant information, transform it, and then send it to Power Bl. 
 Solution: 
