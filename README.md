@@ -410,3 +410,7 @@ However, you cannot use a SQL-like language.
 
 **A function app** is similar to a WebJob in that it can be invoked on a schedule or by a trigger. You can use many different languages to create a function in a function app. 
 However, you cannot use a SQL-like language.
+
+You should use JavaScript Object Notation (JSON) or comma-separated-value (CSV). These are two of three data formats supported for test data in Stream Analytics, which is what you should use to analyze the data. The third data format is AVRO. 
+
+You should not use XML or YAML. Neither of these data formats is supported by Streaming Analytics test data.
