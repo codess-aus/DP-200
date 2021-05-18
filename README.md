@@ -366,6 +366,8 @@ Azure Cosmos DB is a multi-model, non-relational database that uses one of five 
 
 **Session windows** begin when the defect detection event occurs, and they continue to extend, including new events occurring within the set time interval (timeout). If no further events are detected, then the window will close. The window will also close if the maximum duration parameter is set for the session window, and then a new session window may begin. The session window option will effectively filter out periods of time where no events are streamed. Each event is only counted once. 
 
+Session window functions group events that arrive at a similar time. However, events could belong to more than one window and session windows have a variable length.
+
 Windowing functions are native to Stream Analytics, which is what you should use to analyze the data. The **session windowing function** allows you to group streaming events that arrive at a similar time. In this scenario, you want to determine the time when the suspected cheating occurs. Specifically, you want to determine the number of pass results that occur at a test center within 20 minutes of each other. 
 
 **Tumbling windows** are a series of fixed-sized, non-overlapping and contiguous time intervals. Each event is only counted once. However, they do not check the time duration between events and do not filter out periods of time when no events are streamed. 
