@@ -414,3 +414,7 @@ However, you cannot use a SQL-like language.
 You should use JavaScript Object Notation (JSON) or comma-separated-value (CSV). These are two of three data formats supported for test data in Stream Analytics, which is what you should use to analyze the data. The third data format is AVRO. 
 
 You should not use XML or YAML. Neither of these data formats is supported by Streaming Analytics test data.
+
+Reference input is data that never or rarely changes. You can do this in Stream Analytics. Stream Analytics allows you to define an input data source, a query, and an output data source. The input data source can be an event hub, an IOT hub, or Blob storage. The output data source in this scenario is Power Bl. The query is a SQL-like query language. This allows you to take advantage of your existing skills. 
+
+You should not add candidates as data stream input. You should add candidates as reference input, because this input represents data that never or rarely changes. You should add scores as data stream input. Data stream input changes over time. Candidate scores are not static data.
