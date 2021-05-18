@@ -380,7 +380,16 @@ You do the following:
 
 **Event Hubs** is an Azure resource that allows you to stream big data to the cloud. It accepts streaming data over HTTPS and AMQP. A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl. 
 
+**Event Hub** is an Azure resource that accepts streaming telemetry data from other sources. It is basically a big data pipeline. It allows you to capture, retain, and replay telemetry data, which in this case is candidate exam data. 
+
 **IOT Hub** is an Azure resource that allows you to stream big data to the cloud. It supports per-device provisioning. It accepts streaming data over HTTPS, AMQP, and Message Queue Telemetry Transport (MQTT). A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl.
 
 **Azure Relay** allows client applications to connect to services hosted on a private network over the internet. An Azure Function app contains one or more functions that are 
 exposed over HTTP. These functions can be invoked by triggers or on a schedule. Neither Azure Relay nor Azure Function apps accept messages over AMPQ. 
+Azure Relay allows client applications to access on-premises services through Azure. 
+
+**Event Grid**. Event Grid is a publish-subscribe platform for events. Event publishers send the events to Event Grid. Subscribers subscribe to the events they want to handle. 
+
+
+
+Databricks is a technology that allows you to ingest and analyze data. 
