@@ -381,3 +381,6 @@ You do the following:
 **Event Hubs** is an Azure resource that allows you to stream big data to the cloud. It accepts streaming data over HTTPS and AMQP. A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl. 
 
 **IOT Hub** is an Azure resource that allows you to stream big data to the cloud. It supports per-device provisioning. It accepts streaming data over HTTPS, AMQP, and Message Queue Telemetry Transport (MQTT). A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl.
+
+**Azure Relay** allows client applications to connect to services hosted on a private network over the internet. An Azure Function app contains one or more functions that are 
+exposed over HTTP. These functions can be invoked by triggers or on a schedule. Neither Azure Relay nor Azure Function apps accept messages over AMPQ. 
