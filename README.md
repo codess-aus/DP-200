@@ -372,3 +372,10 @@ Azure Cosmos DB is a multi-model, non-relational database that uses one of five 
 
 **Sliding windows** are a series of fixed-sized and contiguous time intervals. They produce output only when an event occurs, so you can filter out periods of times where no events are streamed. However, they may overlap and that is why an event may be included in more than one window. Sliding windows also do not check the time duration between events.
 
+You want to retrieve the sensor data in real time so that you can extract relevant information, transform it, and then send it to Power Bl. 
+Solution: 
+You do the following: 
+• Create an Event Hub instance. 
+• Create a Stream Analytics job that uses a query to extract data.
+
+**Event Hubs** is an Azure resource that allows you to stream big data to the cloud. It accepts streaming data over HTTPS and AMQP. A Stream Analytics job can read data from Event Hubs and store the transformed data in a variety of output data sources, including Power Bl. 
