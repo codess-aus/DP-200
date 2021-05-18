@@ -390,6 +390,15 @@ Azure Relay allows client applications to access on-premises services through Az
 
 **Event Grid**. Event Grid is a publish-subscribe platform for events. Event publishers send the events to Event Grid. Subscribers subscribe to the events they want to handle. 
 
+**Databricks** is a technology that allows you to ingest and analyze data. 
 
+**Stream Analytics** allows you to define an input data source, a query, and an output data source. The input data source can be an event hub, an IOT hub, or blob storage. The 
+output data source in this scenario is Power Bl. The query is a SQL-like query language. This allows you to take advantage of your existing skills. 
 
-Databricks is a technology that allows you to ingest and analyze data. 
+**HDlnsight** is a streaming technology that allows you to use C#, F#, Java, Python, and Scala. It does not allow you to use a SQL-like language. 
+
+**A WebJob** runs in the context of an Azure App Service app. It can be invoked on a schedule or by a trigger. You can use Java, Node.js, PHP, Python to implement WebJobs. 
+However, you cannot use a SQL-like language. 
+
+**A function app** is similar to a WebJob in that it can be invoked on a schedule or by a trigger. You can use many different languages to create a function in a function app. 
+However, you cannot use a SQL-like language.
