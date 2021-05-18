@@ -378,6 +378,9 @@ Tumbling window functions define fixed-size, non-overlapping and contiguous time
 
 **Hopping windows** are a series of fixed-sized and contiguous time intervals. They hop forward by a specified fixed time. If the hop size is less than a size of the window, hopping windows overlap, and that is why an event may be part of several windows. Hopping windows do not check the time duration between events and do not filter out periods of time when no events are streamed. 
 
+Hopping window functions define fixed-size, overlapping and contiguous time intervals. When defining a hopping window, you need to define the windowsize and 
+hopsize (how long a window will overlap with the previous one). This results in events that could belong to one or more windows.
+
 **Sliding windows** are a series of fixed-sized and contiguous time intervals. They produce output only when an event occurs, so you can filter out periods of times where no events are streamed. However, they may overlap and that is why an event may be included in more than one window. Sliding windows also do not check the time duration between events.
 
 **LAST function**. This is an analytic function used to look up for the most recent event in an event stream, given an optional constraint. You should use a windowing function to determine the number of pass results that occur at a test center within 20 minutes of each other. 
