@@ -363,3 +363,6 @@ Azure Databricks uses Spark clusters to execute code in notebooks. You should no
 you to connect to other SQL Server instances. The dbutils.fs.cp command allows you to copy files in Databricks. Because you should not use Databricks, you should not run this command.
 
 Azure Cosmos DB is a multi-model, non-relational database that uses one of five APIs: SQL, Table, Cassandra, MongoDB, and Gremlin. You should not use sp_addlinkedserver to connect to a Cosmos DB account. This stored procedure allows you to connect to other SQL Server instances. BULK IMPORT does allow you to bulk import data, but this command cannot import data from a Cosmos DB account.
+
+**Session windows** begin when the defect detection event occurs, and they continue to extend, including new events occurring within the set time interval (timeout). If no further events are detected, then the window will close. The window will also close if the maximum duration parameter is set for the session window, and then a new session window may begin. The session window option will effectively filter out periods of time where no events are streamed. Each event is only counted once. 
+
