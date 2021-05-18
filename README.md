@@ -366,3 +366,5 @@ Azure Cosmos DB is a multi-model, non-relational database that uses one of five 
 
 **Session windows** begin when the defect detection event occurs, and they continue to extend, including new events occurring within the set time interval (timeout). If no further events are detected, then the window will close. The window will also close if the maximum duration parameter is set for the session window, and then a new session window may begin. The session window option will effectively filter out periods of time where no events are streamed. Each event is only counted once. 
 
+**Tumbling windows** are a series of fixed-sized, non-overlapping and contiguous time intervals. Each event is only counted once. However, they do not check the time duration between events and do not filter out periods of time when no events are streamed. 
+
