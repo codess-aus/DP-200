@@ -383,6 +383,10 @@ hopsize (how long a window will overlap with the previous one). This results in 
 
 **Sliding windows** are a series of fixed-sized and contiguous time intervals. They produce output only when an event occurs, so you can filter out periods of times where no events are streamed. However, they may overlap and that is why an event may be included in more than one window. Sliding windows also do not check the time duration between events.
 
+Sliding window functions define fixed-size, overlapping and contiguous time intervals. When you define a window length for a sliding function, Stream Analytics will
+consider all possible windows for that length. This is similar to setting a hopping window function with a hop size equal to zero, with the exception that the sliding function will only produce an output when an event.
+
+
 **LAST function**. This is an analytic function used to look up for the most recent event in an event stream, given an optional constraint. You should use a windowing function to determine the number of pass results that occur at a test center within 20 minutes of each other. 
 
 **MIN function**. This is an aggregate function used to return the minimal value in an expression. You should use a windowing function to determine the number of pass results that occur at a test center within 20 minutes of each other. 
