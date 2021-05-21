@@ -439,4 +439,14 @@ You should not create a scheduled function. A function is a pay-per-use service 
 
 You should not create a scheduled WebJob. A WebJob can also run on a schedule. It runs in the context of an Azure App Service. You can create a WebJob by using JavaScript, Java, Python, Bash, PHP, PowerShell, TypeScript, .cmd, and .bat. WebJobs do not work in this scenario because they do not generate visual graphs.
 
+Generate Bar Charts and Pie Charts without writing graphics code:
+You should recommend Azure Databricks. This is an Apache Spark-based technology that allows you to run code in notebooks. Code can be written in SQL, Python, Scala, and R. You can have data automatically generate pie charts and bar charts when you run a notebook. 
+
+You should not recommend Azure Data Lake. Azure Data Lake is a big data storage solution that allows you to store data of any type and size. 
+
+You should not recommend Stream Analytics. Stream Analytics is a big data analytics solution that allows you to analyze real-time events simultaneously. 
+
+You should not recommend Log Analytics. Log Analytics allows you to write queries to analyze logs in Azure.
+
+
 
