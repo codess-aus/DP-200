@@ -449,5 +449,31 @@ You should not recommend Stream Analytics. Stream Analytics is a big data analyt
 
 You should not recommend Log Analytics. Log Analytics allows you to write queries to analyze logs in Azure.
 
+Q: How do you integrate the SSIS packages with Azure Data Factory by configuring the self-hosted integration runtime (IR) as a proxy for Azure-SSIS IR. You already created the Azure Blob storage for the integration. 
+
+You should perform the following actions: 
+• Create an Azure-SSIS IR in Azure Data Factory. 
+• Install the self-hosted IR in the on-premises SSIS. 
+• Register the self-hosted IR with the authentication key. 
+• Create a linked service in Azure Data Factory with Azure Blob storage. 
+• Set up the self-hosted IR as a proxy for your Azure-SSIS IR. 
+You should create an Azure-SSIS IR in Azure Data Factory to start the configuration for the self-hosted IR as 
+a proxy for Azure-SSI IR. 
+You should then install the self-hosted IR in the on-premises SSIS. This will prepare the on-premises SSIS to 
+be registered as a self-hosted IR in Azure Data Factory. 
+Next, you should create and register the self-hosted IR with the authentication key. This will create the self- 
+hosted IR and configure it with the on-premises SSIS instance. 
+You should then create a linked service in Azure Data Factory with Azure Blob Storage. A self-hosted IR as a 
+proxy for Azure-SSI IR will split the SSIS package data flow task into two stages. In the first stage, the on- 
+premises SSIS will move the on-premises data into a staging area in Azure Blob storage. In the next stage, 
+the Azure-SSIS IR will move the data from the staging Blob Storage to the destination. 
+Finally, you should set up the self-hosted IR as a proxy for your Azure-SSIS IR. After your Azure-SSIS and 
+self-hosted IR are created and configured, you can configure the Azure-SSIS IR to use the self-hosted IR as 
+a proxy. In this step, you also need to select the Azure Blob Storage that will be used as a staging area to 
+move the data from the self-hosted IR to the Azure-SSIS IR in the cloud. 
+You should not install the self-hosted IR or create a linked service in Azure Data Factory with the on- 
+premises data warehouse. The data warehouse will not be used to process Azure Data Factory pipelines as 
+a self-hosted IR or as a linked service. You only need to configure a self-hosted IR as a proxy for the Azure- 
+IR. ![image](https://user-images.githubusercontent.com/5952956/119074252-48066d80-ba21-11eb-9ba4-df191053bb2a.png)
 
 
