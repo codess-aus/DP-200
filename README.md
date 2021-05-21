@@ -430,8 +430,9 @@ Reference input is data that never or rarely changes. You can do this in Stream 
 
 You should not add candidates as data stream input. You should add candidates as reference input, because this input represents data that never or rarely changes. You should add scores as data stream input. Data stream input changes over time. Candidate scores are not static data.
 
-To schedule a job to generate charts you can visualise:
-With Databricks, you can easily visualize data from external sources in charts by using familiar languages such as Scala or SQL. To do this, you create a notebook, assign it to a cluster, and then write code in cells. With the job, you can define the notebook to run. 
+To *schedule a job to generate charts you can visualise*:
+
+With **Databricks**, you can easily visualize data from external sources in charts by using familiar languages such as Scala or SQL. To do this, you create a notebook, assign it to a cluster, and then write code in cells. With the job, you can define the notebook to run. 
 
 You should not create a scheduled runbook in Azure Automation. A runbook can run on a schedule. You can create them graphically, with PowerShell, or with Python. They are simply code components that execute within Azure. Graphical runbooks generate PowerShell code. Runbooks do not work in this scenario because they do not generate visual graphs.
 
@@ -439,8 +440,8 @@ You should not create a scheduled function. A function is a pay-per-use service 
 
 You should not create a scheduled WebJob. A WebJob can also run on a schedule. It runs in the context of an Azure App Service. You can create a WebJob by using JavaScript, Java, Python, Bash, PHP, PowerShell, TypeScript, .cmd, and .bat. WebJobs do not work in this scenario because they do not generate visual graphs.
 
-Generate Bar Charts and Pie Charts without writing graphics code:
-You should recommend Azure Databricks. This is an Apache Spark-based technology that allows you to run code in notebooks. Code can be written in SQL, Python, Scala, and R. You can have data automatically generate pie charts and bar charts when you run a notebook. 
+*Generate Bar Charts and Pie Charts without writing graphics code*:
+You should recommend **Azure Databricks**. This is an Apache Spark-based technology that allows you to run code in notebooks. Code can be written in SQL, Python, Scala, and R. You can have data automatically generate pie charts and bar charts when you run a notebook. 
 
 You should not recommend Azure Data Lake. Azure Data Lake is a big data storage solution that allows you to store data of any type and size. 
 
