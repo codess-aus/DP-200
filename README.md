@@ -429,3 +429,14 @@ You should not use XML or YAML. Neither of these data formats is supported by St
 Reference input is data that never or rarely changes. You can do this in Stream Analytics. Stream Analytics allows you to define an input data source, a query, and an output data source. The input data source can be an event hub, an IOT hub, or Blob storage. The output data source in this scenario is Power Bl. The query is a SQL-like query language. This allows you to take advantage of your existing skills. 
 
 You should not add candidates as data stream input. You should add candidates as reference input, because this input represents data that never or rarely changes. You should add scores as data stream input. Data stream input changes over time. Candidate scores are not static data.
+
+To schedule a job to generate charts you can visualise:
+With Databricks, you can easily visualize data from external sources in charts by using familiar languages such as Scala or SQL. To do this, you create a notebook, assign it to a cluster, and then write code in cells. With the job, you can define the notebook to run. 
+
+You should not create a scheduled runbook in Azure Automation. A runbook can run on a schedule. You can create them graphically, with PowerShell, or with Python. They are simply code components that execute within Azure. Graphical runbooks generate PowerShell code. Runbooks do not work in this scenario because they do not generate visual graphs.
+
+You should not create a scheduled function. A function is a pay-per-use service that can also run on a schedule. You can create a function by using C# F#, JavaScript, Java, and Python. Functions do not work in this scenario because they do not generate visual graphs. 
+
+You should not create a scheduled WebJob. A WebJob can also run on a schedule. It runs in the context of an Azure App Service. You can create a WebJob by using JavaScript, Java, Python, Bash, PHP, PowerShell, TypeScript, .cmd, and .bat. WebJobs do not work in this scenario because they do not generate visual graphs.
+
+
