@@ -528,3 +528,9 @@ to all users who access the cluster.
 You should not use IOT Hub or Blob Storage. Both input streams are supported by Azure Stream Analytics. However, they are not compatible with Apache Kafka protocols. You can configure a custom connector in Kafka Connect to integrate a producer with IOT Hub from an Apache Kafka cluster. However, you need to directly consume from the social media data stream. 
 
 You should not use CSV or JSON as the serialization format. These formats are plain-text and the social media platform sends data in binary format. 
+
+The SSAS data source cannot be used in an ADF Copy Activity. SSAS is not a supported data store for the Copy Activity. A possible approach would be to export the data to CSV files first and then use the Copy activity on the CSV files. 
+
+The incremental load from the Azure SQL Database can be implemented by using the change tracking feature combined with an ADF Copy Activity. By enabling change tracking, the changed rows in the database are recorded. This can be used in a source query in ADF to periodically transfer the changes to a data warehouse. 
+
+The Polybase feature to load the Azure Synapse Analytics SQL pool can be invoked by an ADF Copy Activity. The ADF Copy Activity has an option to enable Polybase.
