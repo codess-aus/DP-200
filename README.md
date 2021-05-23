@@ -487,4 +487,11 @@ You need to ensure that you can successfully copy data.
 
 **self-hosted integration runtime on an Azure VM**: Because you are copying data to an on-premises server, you must install the self-hosted integration runtime on the local network. 
 
+**Create a Spark cluster**: Code in notebooks run on Spark clusters, which is an execution environment that runs on a cluster of nodes. If you import a notebook, it is imported as detached. You must then create a cluster and attach the notebook to that cluster. For existing Databricks accounts that already contain clusters, you can simply attach the notebook to the existing cluster. 
+
+**A Synapse SQL pool**: Synapse SQL pool allows you to perform parallel queries on Big Data. In this scenario, you want to ingest data into Databricks. It is not required to use Synapse SQL pool with Databricks. 
+
+**Create a Cosmos DB account**: Cosmos DB is a multi-model, non-relational database that supports one of five APIs: SQL, Table, Cassandra, Gremlin, and MongoDB. It is not necessary to use Cosmos DB with Databricks. 
+
+**Create a master key**: A master key is necessary when you want to use column encryption in SQL databases.
 
