@@ -368,6 +368,8 @@ Azure Cosmos DB is a multi-model, non-relational database that uses one of five 
 
 Session window functions group events that arrive at a similar time. However, events could belong to more than one window and session windows have a variable length.
 
+**Session windowing function**. This function groups together streaming events that arrive at similar times. It filters out time periods when there is no data.
+
 Windowing functions are native to Stream Analytics, which is what you should use to analyze the data. The **session windowing function** allows you to group streaming events that arrive at a similar time. In this scenario, you want to determine the time when the suspected cheating occurs. Specifically, you want to determine the number of pass results that occur at a test center within 20 minutes of each other. 
 
 **Tumbling windows** are a series of fixed-sized, non-overlapping and contiguous time intervals. Each event is only counted once. However, they do not check the time duration between events and do not filter out periods of time when no events are streamed. 
@@ -376,16 +378,21 @@ Windowing functions are native to Stream Analytics, which is what you should use
 
 Tumbling window functions define fixed-size, non-overlapping and contiguous time intervals. In tumbling windows, events only belong to a single window. 
 
+**Tumbling windowing function**: This function segments event data into distinct time segments and then performs a function against them. It allows events to repeat but not overlap. 
+
 **Hopping windows** are a series of fixed-sized and contiguous time intervals. They hop forward by a specified fixed time. If the hop size is less than a size of the window, hopping windows overlap, and that is why an event may be part of several windows. Hopping windows do not check the time duration between events and do not filter out periods of time when no events are streamed. 
 
 Hopping window functions define fixed-size, overlapping and contiguous time intervals. When defining a hopping window, you need to define the windowsize and 
 hopsize (how long a window will overlap with the previous one). This results in events that could belong to one or more windows.
+
+This function is similar to a tumbling window function, but events can overlap. 
 
 **Sliding windows** are a series of fixed-sized and contiguous time intervals. They produce output only when an event occurs, so you can filter out periods of times where no events are streamed. However, they may overlap and that is why an event may be included in more than one window. Sliding windows also do not check the time duration between events.
 
 Sliding window functions define fixed-size, overlapping and contiguous time intervals. When you define a window length for a sliding function, Stream Analytics will
 consider all possible windows for that length. This is similar to setting a hopping window function with a hop size equal to zero, with the exception that the sliding function will only produce an output when an event.
 
+This function produces output only when events occur. 
 
 **LAST function**. This is an analytic function used to look up for the most recent event in an event stream, given an optional constraint. You should use a windowing function to determine the number of pass results that occur at a test center within 20 minutes of each other. 
 
