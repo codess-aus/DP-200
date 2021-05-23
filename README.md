@@ -572,3 +572,12 @@ You should not configure a pipeline or an activity. An activity is the task that
 Activities use datasets to read or write data as the result of a pipeline. Neither is used to connect with an on-premises database. 
 
 You should not configure a manual execution or schedule an execution trigger. These executions allow you to manually start pipelines or schedule their execution. However, you cannot define a specific, fixed-size time interval to run the pipelines.
+
+You should transfer the data using Azure Data Factory in native IR mode, with an Azure Data Factory self-
+hosted IR machine installed on the Azure VNet. This approach supports data transfer via Express Route and uses Azure Data Factory IR as an engine to copy the data. 
+
+You should not transfer the data using Azure Data Factory in DistCopy mode, with an Azure Data Factory self-hosted IR machine installed in the on-premises datacenter. The DistCp tool does not support Express Route private peering with an Azure Storage VNet endpoint. 
+
+You should not transfer the data using Azure Data Box Disk devices. This approach is for offline transfer scenarios. Also, an Azure Data Box Disk device has a total capacity of only 40 T B. 
+
+You should not transfer the data using Azure Data Box Heavy devices. While these devices have a capacity of 1 PB, they are intended for offline transfer scenarios only. 
