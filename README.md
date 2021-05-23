@@ -479,17 +479,12 @@ IR.
 You use Azure Data Factory to copy and transform data from Azure Blob storage to an on-premises server. 
 You need to ensure that you can successfully copy data.
 
-You should create a self-hosted integration runtime in Azure Data Factory UI and install the self-hosted 
-integration runtime on the local network. The integration runtime is the execution environment that provides 
-the computing infrastructure for Data Factory. When you use the Copy activity to copy data between Azure 
-and a private network, you must use the self-hosted integration runtime. You do this by first creating one in 
-Azure Data Factory UI. You must then install the runtime on your local network. 
-You should not create an Azure integration runtime. This is required when you need to copy data between 
-Azure and public cloud services. 
-You should not create an Azure-SSIS integration runtime. This is required when you want to run existing 
-SSIS packages natively. 
-You should not install the self-hosted integration runtime on an Azure VM. Because you are copying data to 
-an on-premises server, you must install the self-hosted integration runtime on the local network. ![image](https://user-images.githubusercontent.com/5952956/119077039-2c519600-ba26-11eb-9453-df8ec2c5bf66.png)
+**A self-hosted integration runtime in Azure Data Factory UI and install the self-hosted integration runtime on the local network**. The integration runtime is the execution environment that provides the computing infrastructure for Data Factory. When you use the Copy activity to copy data between Azure and a private network, you must use the self-hosted integration runtime. You do this by first creating one in Azure Data Factory UI. You must then install the runtime on your local network. 
 
+**Azure integration runtime**: This is required when you need to copy data between Azure and public cloud services. 
+
+**Azure-SSIS integration runtime**: This is required when you want to run existing SSIS packages natively. 
+
+**self-hosted integration runtime on an Azure VM**: Because you are copying data to an on-premises server, you must install the self-hosted integration runtime on the local network. 
 
 
