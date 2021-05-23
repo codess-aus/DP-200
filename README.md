@@ -534,3 +534,23 @@ The SSAS data source cannot be used in an ADF Copy Activity. SSAS is not a suppo
 The incremental load from the Azure SQL Database can be implemented by using the change tracking feature combined with an ADF Copy Activity. By enabling change tracking, the changed rows in the database are recorded. This can be used in a source query in ADF to periodically transfer the changes to a data warehouse. 
 
 The Polybase feature to load the Azure Synapse Analytics SQL pool can be invoked by an ADF Copy Activity. The ADF Copy Activity has an option to enable Polybase.
+
+You should perform the following actions in order: 
+1. Create an Azure Blob storage container. 
+2. Create a Stream Analytics job with edge hosting. 
+3. Configure the Azure Blob Storage container as the save location for the job definition. 
+4. Set up an IOT Edge environment on the IOT devices and add a Stream Analytics module. 
+5. Configure routes in IOT Edge. 
+
+To minimize latency and bandwidth usage between the Stream Analytics job and the IOT devices, you should configure IOT Edge. IOT Edge is a solution that analyzes data on devices instead of in the cloud, allowing a quicker reaction to events. 
+
+You should create an Azure Blob storage container and a Stream Analytics job with edge hosting and configure the Azure Blob storage container as the save location for the job definition. This is required by IOT Edge to create your jobs and synchronize the job definition to IOT devices via an Azure Blob Storage container. 
+
+You should set up an IOT Edge environment on the IOT devices and add a Stream Analytics module. After installing IOT Edge on the IOT devices and adding a Stream Analytics module, you should select the Stream Analytics job to run directly on the IOT devices. 
+
+Finally, you should configure routes in IOT Edge. This will upstream events from a Stream Analytics job to an
+IOT Hub in the cloud, allowing Azure Functions to process the events. 
+
+You should not create a Stream Analytics job with cloud hosting. Cloud hosting is used to run a Stream Analytics job in the cloud. You should run the Stream Analytics job directly in the IOT device to minimize latency and bandwidth usage. 
+
+You should not configure Streaming Units (SUs). A Stream Analytics job with edge hosting does not consume SUs. You only need to configure SUS with cloud-hosted Stream Analytics jobs.
