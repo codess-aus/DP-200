@@ -554,3 +554,11 @@ IOT Hub in the cloud, allowing Azure Functions to process the events.
 You should not create a Stream Analytics job with cloud hosting. Cloud hosting is used to run a Stream Analytics job in the cloud. You should run the Stream Analytics job directly in the IOT device to minimize latency and bandwidth usage. 
 
 You should not configure Streaming Units (SUs). A Stream Analytics job with edge hosting does not consume SUs. You only need to configure SUS with cloud-hosted Stream Analytics jobs.
+
+You should use a union transformation. This transformation collects data from multiple streams. Input columns are mapped to output columns based on a name or a position. 
+
+You should not use a join transformation. This transformation combines multiple input rows into a single output row based on a join type and condition. 
+
+You should not use a lookup transformation. This transformation is used for adding data to rows from another stream. 
+
+You should not use an aggregate transformation. This transformation is used for aggregate calculations. Aggregation involves two steps: First multiple rows are grouped into one row. Then an aggregate calculation such as SUM or COUNT is applied to the group of rows.
