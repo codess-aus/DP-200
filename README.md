@@ -495,3 +495,13 @@ You need to ensure that you can successfully copy data.
 
 **Create a master key**: A master key is necessary when you want to use column encryption in SQL databases.
 
+**Configure the storage account key with spark.conf.set()** to ensure that the storage account reads the storage account key from the secret scope with the dbutils.secrets.get() method. 
+
+You should also **mount a filesystem using a service principal** to securely mount the filesystem using the service principal secret stored in the secret scope. After that, you can read the mounted filesystem with the spark.read.text() method and other Spark APIs. 
+
+**Configure the storage account key with spark.sparkContext.hadoopConfiguration()**: You could use this to directly read from Azure Data Lake Store Gen2. However, your storage account key will be exposed to all users who access the cluster, resulting in a security breach. 
+
+**Read from the storage account using RDD API**: RDD API requires you to use spark.sparkContext.hadoopConfiguration(). This results in unnecessary exposure of the storage account key 
+to all users who access the cluster. 
+
+**Generate a SAS**: You could use a SAS to authenticate with Azure Blob Storage. Azure Data Lake Store Gen2 requires using storage account keys.
