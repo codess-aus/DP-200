@@ -512,3 +512,11 @@ You should also **mount a filesystem using a service principal** to securely mou
 to all users who access the cluster. 
 
 **Generate a SAS**: You could use a SAS to authenticate with Azure Blob Storage. Azure Data Lake Store Gen2 requires using storage account keys.
+
+**Create an access token**: An access token allows external applications to access Databricks. To generate an access token, browse to the Databricks portal, go to User Settings, and choose Generate New Token. The access token is visible only once. 
+
+**Generate a master key**: A master key is used in SQL Database to perform column encryption. 
+
+**Create an access policy on a blob storage container**. Access policies allow you to add an additional level of control to blobs. They are not used with Data Factory and Databricks. 
+
+**Create a blob storage container**. Blob storage containers allow you to store arbitrary data in Azure. Blob storage containers are not required to use Databricks and Data Factory.
