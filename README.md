@@ -520,3 +520,11 @@ to all users who access the cluster.
 **Create an access policy on a blob storage container**. Access policies allow you to add an additional level of control to blobs. They are not used with Data Factory and Databricks. 
 
 **Create a blob storage container**. Blob storage containers allow you to store arbitrary data in Azure. Blob storage containers are not required to use Databricks and Data Factory.
+
+**Event Hub as the input stream type**. Event Hub is a managed streaming platform and event ingestion service with the ability to process millions of events per second. Event Hub provides compatibility with the Kafka protocol in the standard and dedicated pricing tiers. Event Hub could be used directly by Kafka applications and Azure Stream Analytics as well without configuring custom connectors. 
+
+**Avro as the serialization format**. Avro is a binary serialization format that relies on schemas to define what fields are present and their type. Event Hub focuses on the streaming itself, but you can use the Schema Registry in the Kafka applications to validate the schema. 
+
+You should not use IOT Hub or Blob Storage. Both input streams are supported by Azure Stream Analytics. However, they are not compatible with Apache Kafka protocols. You can configure a custom connector in Kafka Connect to integrate a producer with IOT Hub from an Apache Kafka cluster. However, you need to directly consume from the social media data stream. 
+
+You should not use CSV or JSON as the serialization format. These formats are plain-text and the social media platform sends data in binary format. 
