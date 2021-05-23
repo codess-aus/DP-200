@@ -562,3 +562,13 @@ You should not use a join transformation. This transformation combines multiple 
 You should not use a lookup transformation. This transformation is used for adding data to rows from another stream. 
 
 You should not use an aggregate transformation. This transformation is used for aggregate calculations. Aggregation involves two steps: First multiple rows are grouped into one row. Then an aggregate calculation such as SUM or COUNT is applied to the group of rows.
+
+You should configure a linked service as the component. A linked service stores the connection information from the source dataset, like user credentials, server address, and database name. You need to configure a linked service for the on-premises database and this linked service will be used by the dataset. 
+
+You should configure a tumbling window as the pipeline execution trigger. A tumbling window can define the starting time in the WindowStart setting and the ending time in the WindowEnd setting, defining a time frame to run the data pipeline. 
+
+You should not configure a pipeline or an activity. An activity is the task that is executed, like copying data or performing a lookup. A pipeline is a group of activities linked together to form a data pipeline. 
+
+Activities use datasets to read or write data as the result of a pipeline. Neither is used to connect with an on-premises database. 
+
+You should not configure a manual execution or schedule an execution trigger. These executions allow you to manually start pipelines or schedule their execution. However, you cannot define a specific, fixed-size time interval to run the pipelines.
